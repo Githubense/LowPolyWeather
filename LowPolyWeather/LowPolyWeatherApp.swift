@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 @main
 struct LowPolyWeatherApp: App {
@@ -16,7 +17,17 @@ struct LowPolyWeatherApp: App {
         WindowGroup {
             ContentView()
                 .environment(appModel)
+                .task {
+                    // Request location permission on app launch
+                    WeatherService.shared.requestLocationPermission()
+                    
+                    // Initialize smart weather manager (starts background prefetch)
+                    _ = SmartWeatherLocationManager.shared
+                    
+                    print("🚀 LowPolyWeather launched with smart weather management")
+                }
         }
+        .defaultSize(width: 1280, height: 720)
 
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
@@ -29,5 +40,5 @@ struct LowPolyWeatherApp: App {
                 }
         }
         .immersionStyle(selection: .constant(.mixed), in: .mixed)
-     }
+    }
 }
