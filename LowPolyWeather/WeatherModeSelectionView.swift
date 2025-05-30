@@ -96,10 +96,20 @@ struct WeatherModeSelectionView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
             
-            Text("We'll find a place in the world with your desired weather")
+            Text("Choose manually or let AI suggest based on your mood")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
+            
+            // Add AI Assistant section
+            MoodInputView()
+                .padding()
+                .background(.gray.opacity(0.05))
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+            
+            Text("Or choose manually:")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 15), count: 2), spacing: 15) {
                 ForEach(WeatherVibe.allCases) { vibe in
