@@ -12,14 +12,18 @@ struct QuickMoodSuggestions: View {
     let onMoodSelected: (String) -> Void
     
     private let commonMoods = [
-        ("😌", "relaxed and peaceful"),
-        ("😢", "nostalgic and contemplative"), 
-        ("😴", "cozy and sleepy"),
-        ("⚡️", "energetic and motivated"),
-        ("🧘‍♀️", "need to meditate"),
-        ("💭", "thoughtful and introspective"),
-        ("🌅", "hopeful and optimistic"),
-        ("😰", "stressed and overwhelmed")
+        ("😌", "relaxed and peaceful"),     // → Cloudy/Misty
+        ("😢", "nostalgic and melancholy"), // → Rainy
+        ("😴", "cozy and want to hibernate"), // → Snowy
+        ("⚡️", "energetic and motivated"), // → Sunny
+        ("🧘‍♀️", "need deep meditation"),  // → Misty
+        ("💭", "confused and seeking clarity"), // → Foggy
+        ("🌅", "optimistic and hopeful"),   // → Sunny
+        ("😤", "frustrated and intense"),   // → Stormy
+        ("🕊️", "free and light"),          // → Breezy
+        ("☁️", "mildly contemplative"),     // → Cloudy
+        ("🔥", "passionate and powerful"),  // → Stormy
+        ("❄️", "want winter comfort")       // → Snowy
     ]
     
     var body: some View {
